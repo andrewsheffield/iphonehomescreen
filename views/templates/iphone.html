@@ -134,13 +134,16 @@
       and the battery can be set from the input above (1-100).  If the battery is below 20% is will appear red.
     </p>
     <p>
-      The app screen can be modified by pressing the delete mode check box.  The apps will wiggle and the delete button will appear.  Any app can be removed from the dock or main screen and the remaining apps will fill in to the top left.  An app can be added with a name, icon and notification amount by filling the fields above.
+      The app screen can be modified by first removing apps, click and hold on an app to cause the apps to wiggle and the remove button to appear.  Second, apps can be added to the dock or app page through the fields above.
     </p>
     <p>
       The dock background is a blur of the image behind the dock.
     </p>
     <p>
-      The launch app checkbox with launch a github email search app in the simulator.
+      The Github Search app is the only app that cannot be removed.  Clicking the app will launch the github search app.
+    </p>
+    <p>
+      The github search app takes comma or space delimited usernames.  Regex was used to allow an indeterminate number of spaces or commas. The app will connect through a backend api which then connects to github.  The backend api will search for an email in the object and return it. It will also save that result in a local dictionary to be used if the same username is searched for again.
     </p>
   </div>
 
