@@ -93,7 +93,7 @@
     </div>
     <div class="dock">
       <div class="col" ng-repeat="app in ip.dock | orderBy:order">
-        <div class="app-icon">
+        <div class="app-icon" on-click-and-hold="ip.setDeleteMode()">
           <div class="icon-img" ng-style="{'background-image': 'url({{app.img}})'}">
             <div class="delete-btn" ng-click="ip.removeAppFromDock($index)"><span>X</span></div>
             <div class="badge" ng-if="app.notifications > 0"><span>{{ app.notifications }}</span></div>
