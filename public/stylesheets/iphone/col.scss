@@ -2,16 +2,18 @@
   float: left;
   width: 175px;
   height: 16%;
-  //background-color: blue;
   text-align: center;
   .app-icon {
     display: inline-block;
     margin-top: 8px;
     position: relative;
     cursor: pointer;
-    
     .icon-img {
       position: relative;
+      background-color: #000;
+    }
+    .icon-img.pressed {
+      filter: brightness(0.8);
     }
     .delete-btn {
       color: black;
@@ -34,7 +36,6 @@
       position: absolute;
       right: -12px;
       top: -12px;
-      //width: 30px;
       height: 40px;
       padding-right: 12px;
       padding-left: 12px;

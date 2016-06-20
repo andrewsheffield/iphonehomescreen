@@ -4,12 +4,12 @@
   angular.module("iphoneApp", [])
     .controller('iphoneController', iphoneController);
   
-  function iphoneController($interval) {
+  function iphoneController($interval, $timeout) {
     //Scope Variables
     var vm = this;
-    vm.apps = [messages, internet, camera, clock, reddit, uber, photos, settings, videos, google_maps, maps, netflix, app_store, linkedin, facebook, hbo_now, instagram, skype, twitter, weather, stocks, compass, icloud, espn];
+    vm.apps = [messages, internet, camera, clock, reddit, uber, photos, settings, videos, google_maps, maps, netflix, app_store, linkedin, facebook, hbo_now, instagram, skype, twitter, weather, stocks, compass, icloud];
     vm.dock = [phone, mail, notes, music];
-    vm.wallpaperProp = {'background-image': "url(http://i1.wp.com/ioshacker.com/wp-content/uploads/2013/11/batman-wallpaper-iphone-5s-silver.jpg)"};
+    vm.wallpaperProp = {'background-image': "url(http://www.drodd.com/images10/iphone-wallpaper/iphone-wallpaper15.jpg)"};
     vm.deleteMode = false;
     vm.cell_signal = {level: 1};
     vm.battery_percent = {level: 19};
@@ -24,11 +24,11 @@
 
     //Public Functions
     vm.addAppToPage = function() {
-      addApp(vm.apps, 24);
+      addApp(vm.apps, 23);
     }
 
     vm.removeAppFromPage = function(index) {
-      removeApp(vm.apps, infex)
+      removeApp(vm.apps, index)
     }
     
     vm.addAppToDock = function() {
@@ -56,6 +56,21 @@
     
     vm.setWallpaper = function() {
       vm.wallpaperProp = {'background-image': 'url(' + vm.newWallpaper + ')'}
+    }
+
+    vm.setDeleteMode = function() {
+      vm.deleteMode = true;
+    }
+
+    vm.openApp = function() {
+      if (!vm.deleteMode) {
+        vm.appOpened = true;
+      }
+    }
+
+    vm.homeBtnPressed = function() {
+      vm.deleteMode = false;
+      vm.appOpened = false;
     }
 
     //Private functions
@@ -99,8 +114,6 @@
       }
     }
     
-    
   }//End of Controller
-  
   
 }());
