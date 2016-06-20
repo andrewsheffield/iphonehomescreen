@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 var https = require('https');
 
-//Takes and object or array and searches for the key 'item'
+//Takes and object or array and searches for an email value
+//Returns null if none is found
 function emailSearch(obj) {
 	if (obj.email) return obj.email;
 	for (var key in obj) {
@@ -14,6 +15,9 @@ function emailSearch(obj) {
 	return null;
 }
 
+//Connects to the public github API using the username and then searches for the email
+//evokes the callback function cb, with the paramter result as an object containing
+//user: string, email: string
 function gitHubConnect(user, cb) {
 	var options = {
 		method: 'GET',
@@ -49,7 +53,7 @@ function gitHubConnect(user, cb) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('iphone', { title: 'iPhone Sim' });
 });
 
 /* Get email for user */

@@ -1,5 +1,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
+<!-- iPhoneApp wrapper for the angular app -->
 <div ng-app="iphoneApp" ng-controller="iphoneController as ip">
 
   <div class="iphone" ng-class="{'delete-mode': ip.deleteMode}">
@@ -113,6 +114,27 @@
     <input ng-model="ip.newWallpaper" ng-change="ip.setWallpaper()" type="text" placeholder="Wallpaper URL" /><br>
     <input type="checkbox" ng-model="ip.deleteMode"> Turn on Delete Mode<br>
     <input type="checkbox" ng-model="ip.appOpened"> Launch App<br>
+
+    <h3>Simple iPhone Sim</h3>
+    <p>
+      The iPhone resolution matches the retina resolution of the iPhone 6.
+    </p>
+    <p>
+      The wallpaper can be changed by added a URL to an image in the field above.
+    </p>
+    <p>
+      Menu bar: The cell signal can be altered from the input above (1-5), the time is correct and will continue to update,
+      and the battery can be set from the input above (1-100).  If the battery is below 20% is will appear red.
+    </p>
+    <p>
+      The app screen can be modified by pressing the delete mode check box.  The apps will wiggle and the delete button will appear.  Any app can be removed from the dock or main screen and the remaining apps will fill in to the top left.  An app can be added with a name, icon and notification amount by filling the fields above.
+    </p>
+    <p>
+      The dock background is a blur of the image behind the dock.
+    </p>
+    <p>
+      The launch app checkbox with launch a github email search app in the simulator.
+    </p>
   </div>
 
 </div>
