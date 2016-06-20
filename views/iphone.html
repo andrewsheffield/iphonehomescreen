@@ -1,0 +1,118 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<div ng-app="iphoneApp" ng-controller="iphoneController as ip">
+
+  <div class="iphone" ng-class="{'delete-mode': ip.deleteMode}">
+
+    <div class="bg-img" ng-style="ip.wallpaperProp"></div>
+    
+    <div class="app-overlay" ng-show="ip.appOpened">
+      <div ng-controller="githubController as gh">
+        <div class="search-bar">
+          <input type="text" placeholder="Search..." ng-model="gh.searchString" ng-model-options="{debounce:800}" ng-change="gh.buildList()" />
+        </div>
+        <div class="results">
+          <ul>
+            <li ng-repeat="obj in gh.displayList">{{ obj.user }}
+              <ul>
+                <li>{{ obj.email || "No Email Found" }}</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="instructions" ng-if="gh.displayList.length <= 0">
+          <h3>Welcome to Github Search</h3>
+          <p>This app allows you to search for user emails based off of their user names.  The search field takes a space or comma delimited list of user names.  Try mine to see if it works: 'andrewsheffield'</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-bar">
+      <div class="left menu-segment">
+        <div class="cell-signal">
+          <div class="signal-dot" ng-class="{'full': ip.cell_signal.level >= 1}"></div>
+          <div class="signal-dot" ng-class="{'full': ip.cell_signal.level >= 2}"></div>
+          <div class="signal-dot" ng-class="{'full': ip.cell_signal.level >= 3}"></div>
+          <div class="signal-dot" ng-class="{'full': ip.cell_signal.level >= 4}"></div>
+          <div class="signal-dot" ng-class="{'full': ip.cell_signal.level >= 5}"></div>
+        </div>
+        <div class="carrier">AT&T</div>
+        <div class="data-signal">LTE</div>
+      </div>
+      <div class="center menu-segment">
+        <div class="time">{{ ip.current_date | date: 'shortTime' }}</div>
+      </div>
+      <div class="right menu-segment">
+        <div class="battery-percent">{{ ip.battery_percent.level | number:0 }}%</div>
+        <div class="battery">
+          <div class="battery-icon">
+            <div class="outline">
+              <div class="filling" ng-class="{'low-battery': ip.battery_percent.level < 20}" ng-style="ip.batteryProp"></div>
+            </div>
+            <div class="topper"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="body">
+
+      <div class="icon-page active">
+
+        <div class="col" ng-repeat="app in ip.apps | orderBy:order">
+          <div class="app-icon">
+            <div class="icon-img" ng-style="{'background-image': 'url({{app.img}})'}">
+              <div class="delete-btn" ng-click="ip.removeAppFromPage($index)"><span>X</span></div>
+              <div class="badge" ng-if="app.notifications > 0"><span>{{ app.notifications }}</span></div>
+            </div>
+            <div class="icon-text">{{ app.name }}</div>
+          </div>
+        </div>
+
+        <div class="indicators">
+          <div class="indicator active"></div>
+        </div>
+
+      </div>
+      <!--  end of Icon page  -->
+    </div>
+    <!--  End of body  -->
+
+    <div class="dock-bg-wrapper">
+      <div class="dock-bg" ng-style="ip.wallpaperProp"></div>
+    </div>
+    <div class="dock">
+      <div class="col" ng-repeat="app in ip.dock | orderBy:order">
+        <div class="app-icon">
+          <div class="icon-img" ng-style="{'background-image': 'url({{app.img}})'}">
+            <div class="delete-btn" ng-click="ip.removeAppFromDock($index)"><span>X</span></div>
+            <div class="badge" ng-if="app.notifications > 0"><span>{{ app.notifications }}</span></div>
+          </div>
+          <div class="icon-text">{{ app.name }}</div>
+        </div>
+      </div>
+
+    </div>
+
+
+  </div>
+
+  <div class="controls">
+
+    <input ng-model="ip.newName" name="appName" type="text" placeholder="App name" required/><br>
+    <input ng-model="ip.newImg" name="appImg" type="text" placeholder="App img url" required/><br>
+    <input ng-model="ip.newNotis" name="appNotis" type="text" placeholder="number of app notifications" required/><br>
+    <button ng-click="ip.clearNewAppFields()">Clear</button>
+    <button ng-click="ip.addAppToDock()">Add To Dock</button>
+    <button ng-click="ip.addAppToPage()">Add To App Page</button>
+    <br>
+
+    <input ng-model="ip.newBatteryLevel" ng-change="ip.setBatteryLevel()" type="number" placeholder="Set Battery % 1-100" /><br>
+    <input ng-model="ip.newCellLevel" ng-change="ip.setCellLevel()" type="number" placeholder="set signal 1-5" /><br>
+    <input ng-model="ip.newWallpaper" ng-change="ip.setWallpaper()" type="text" placeholder="Wallpaper URL" /><br>
+    <input type="checkbox" ng-model="ip.deleteMode"> Turn on Delete Mode<br>
+    <input type="checkbox" ng-model="ip.appOpened"> Launch App<br>
+  </div>
+
+</div>

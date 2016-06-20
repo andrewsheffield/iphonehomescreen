@@ -1,0 +1,21 @@
+@import 'iphone/app-overlay';
+@import 'iphone/battery';
+@import 'iphone/bg-img';
+@import 'iphone/body';
+@import 'iphone/col';
+@import 'iphone/delete-mode';
+@import 'iphone/dock';
+@import 'iphone/menu-bar';
+
+
+.iphone {
+  width: 740px;
+  height: 1334px;
+  position: relative;
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  float: left;
+}

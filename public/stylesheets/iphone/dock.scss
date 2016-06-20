@@ -1,0 +1,30 @@
+.iphone .dock {
+  margin-left: 20px;
+  width: 700px;
+  height: 192px;
+  position: relative;
+  .col {
+    margin-top: 10px;
+  }
+}
+
+.iphone .dock-bg-wrapper {
+  position: absolute;
+  height: 192px;
+  width: 740px;
+  bottom: 0px;
+  overflow: hidden;
+  .dock-bg {
+    overflow: hidden;
+    position: absolute;
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/30/4c/6f/304c6ffef4aa28c54b6217034151212d.jpg');
+    background-position: center -1125px;
+    background-size: cover;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+    bottom: -50px;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+  }
+}

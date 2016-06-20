@@ -1,0 +1,58 @@
+.iphone .col {
+  float: left;
+  width: 175px;
+  height: 16%;
+  //background-color: blue;
+  text-align: center;
+  .app-icon {
+    display: inline-block;
+    margin-top: 8px;
+    position: relative;
+    cursor: pointer;
+    
+    .icon-img {
+      position: relative;
+    }
+    .delete-btn {
+      color: black;
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-color: #aaa;
+      left: -10px;
+      top: -10px;
+      border-radius: 1000px;
+      display: none;
+      span {
+        font-size: .7em;
+        position: relative;
+        left: 1px;
+        top: -2px;
+      }
+    }
+    .badge {
+      position: absolute;
+      right: -12px;
+      top: -12px;
+      //width: 30px;
+      height: 40px;
+      padding-right: 12px;
+      padding-left: 12px;
+      border-radius: 1000px;
+      background-color: red;
+      span {
+        position: relative;
+        top: 4px;
+        left: 1px;
+      }
+    }
+    .icon-img {
+      display: inline-block;
+      width: 125px;
+      height: 125px;
+      border-radius: 25px;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}

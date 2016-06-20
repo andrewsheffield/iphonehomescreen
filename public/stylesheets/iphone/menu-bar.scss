@@ -1,0 +1,48 @@
+.iphone .menu-bar {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  z-index: 10;
+  .menu-segment {
+    position: absolute;
+    width: 100%;
+    left: 0px;
+    top: 5px;
+    display: inline-block;
+  }
+  .left {
+    * {
+      display: inline-block;
+    }
+    .cell-signal {
+      position: relative;
+      margin-left: 9px;
+      top: -2px;
+      .signal-dot {
+        border-radius: 1000px;
+        margin-right: 3px;
+        display: inline-block;
+        float: left;
+        height: 11px;
+        width: 11px;
+        border: 1px solid white;
+      }
+      .signal-dot.full {
+        background-color: #fff;
+      }
+    }
+  }
+  .center {
+    text-align: center;
+  }
+  .right {
+    text-align: right;
+    .battery,
+    .battery-percent {
+      display: inline-block;
+    }
+    .battery-percent {
+      margin-right: 10px;
+    }
+  }
+}

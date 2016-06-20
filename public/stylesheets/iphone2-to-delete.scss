@@ -1,0 +1,309 @@
+body {
+  //background-color: black;
+}
+
+.controls {
+  width: 270px;
+  float: left;
+  margin-left: 15px;
+}
+
+
+
+.iphone {
+  width: 740px;
+  height: 1334px;
+  position: relative;
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: 1.5em;
+  letter-spacing: 2px;
+  float: left;
+  .bg-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/30/4c/6f/304c6ffef4aa28c54b6217034151212d.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+  .app-overlay {
+    background-color: steelblue;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    transition: all ease .5s;
+    .search-bar {
+      position: relative;
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 80px;
+      text-align: center;
+      input::-webkit-input-placeholder {
+        color: #555;
+      }
+      input {
+        position: relative;
+        width: 80%;
+        //height: 100px;
+        font-size: 36px;
+        background-color: steelblue + #222;
+        border: 0px;
+        border-radius: 5px;
+        outline: none;
+        padding: 10px;
+      }
+    }
+    .results {
+      margin-top: 50px;
+      width: 80%;
+      margin-left: 10%;
+      letter-spacing: 3px;
+    }
+    .instructions {
+      width: 80%;
+      margin-left: 10%;
+      text-align: center;
+    }
+  }
+  .app-overlay.ng-hide {
+    left: 50%;
+    top: 50%;
+    width: 0%;
+    height: 0%;
+    opacity: 0;
+    display: block !important;
+    *{
+      display: none;
+    }
+  }
+  .menu-bar {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    z-index: 10;
+    .menu-segment {
+      position: absolute;
+      width: 100%;
+      left: 0px;
+      top: 5px;
+      display: inline-block;
+    }
+    .left {
+      * {
+        display: inline-block;
+      }
+      .cell-signal {
+        position: relative;
+        margin-left: 9px;
+        top: -2px;
+        .signal-dot {
+          border-radius: 1000px;
+          margin-right: 3px;
+          display: inline-block;
+          float: left;
+          height: 11px;
+          width: 11px;
+          border: 1px solid white;
+        }
+        .signal-dot.full {
+          background-color: #fff;
+        }
+      }
+    }
+    .center {
+      text-align: center;
+    }
+    .right {
+      text-align: right;
+      .battery,
+      .battery-percent {
+        display: inline-block;
+      }
+      .battery-percent {
+        margin-right: 10px;
+      }
+    }
+  }
+  .body {
+    width: 100%;
+    height: 1102px;
+    position: relative;
+    .icon-page {
+      width: 700px;
+      height: 100%;
+      position: relative;
+      margin-left: 20px;
+      //background-color: pink;
+      .indicators {
+        position: absolute;
+        bottom: 0px;
+        width: 100%;
+        //background-color: blue;
+        text-align: center;
+        .indicator {
+          margin: 4px;
+          display: inline-block;
+          height: 15px;
+          width: 15px;
+          background-color: #aaa;
+          border-radius: 1000px;
+          cursor: pointer;
+        }
+        .indicator.active {
+          background-color: #fff;
+        }
+      }
+    }
+    .active {
+      display: block;
+    }
+  }
+  .dock {
+    margin-left: 20px;
+    width: 700px;
+    height: 192px;
+    position: relative;
+    .col {
+      margin-top: 10px;
+    }
+  }
+  .dock-bg-wrapper {
+    position: absolute;
+    height: 192px;
+    width: 740px;
+    bottom: 0px;
+    overflow: hidden;
+  }
+  .dock-bg {
+    overflow: hidden;
+    position: absolute;
+    background-image: url('https://s-media-cache-ak0.pinimg.com/736x/30/4c/6f/304c6ffef4aa28c54b6217034151212d.jpg');
+    background-position: center -1125px;
+    background-size: cover;
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+    bottom: -50px;
+    top: -50px;
+    left: -50px;
+    right: -50px;
+  }
+  .col {
+    float: left;
+    width: 175px;
+    height: 16%;
+    //background-color: blue;
+    text-align: center;
+    .app-icon {
+      display: inline-block;
+      margin-top: 8px;
+      position: relative;
+      cursor: pointer;
+      
+      .icon-img {
+        position: relative;
+      }
+      .delete-btn {
+        color: black;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background-color: #aaa;
+        left: -10px;
+        top: -10px;
+        border-radius: 1000px;
+        display: none;
+        span {
+          font-size: .7em;
+          position: relative;
+          left: 1px;
+          top: -2px;
+        }
+      }
+      .badge {
+        position: absolute;
+        right: -12px;
+        top: -12px;
+        //width: 30px;
+        height: 40px;
+        padding-right: 12px;
+        padding-left: 12px;
+        border-radius: 1000px;
+        background-color: red;
+        span {
+          position: relative;
+          top: 4px;
+          left: 1px;
+        }
+      }
+      .icon-img {
+        display: inline-block;
+        width: 125px;
+        height: 125px;
+        border-radius: 25px;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+}
+
+.battery-icon {
+  position: relative;
+  right: 10px;
+  top: 2px;
+  .outline {
+    height: 19px;
+    width: 45px;
+    border: 1px solid white;
+    border-radius: 2px;
+    padding: 1px;
+    position: relative;
+    .filling {
+      height: 100%;
+      width: 19%;
+      background-color: white;
+      border-radius: 1px;
+    }
+    .low-battery {
+      background-color: red;
+    }
+  }
+  .topper {
+    position: absolute;
+    height: 8px;
+    width: 3px;
+    background-color: white;
+    border-radius: 0px 1000px 1000px 0px;
+    right: -4px;
+    top: 7px;
+  }
+}
+
+.iphone.delete-mode .app-icon {
+  animation: shake .5s infinite;
+  .delete-btn {
+    display: block;
+  }
+}
+
+$shakeDeg: 1deg;
+
+@keyframes shake {
+  0%, 50%, 100% {
+    -ms-transform: rotate($shakeDeg); /* IE 9 */
+    -webkit-transform: rotate($shakeDeg); /* Chrome, Safari, Opera */
+    transform: rotate($shakeDeg);
+  }
+  
+  25%, 75% {
+    -ms-transform: rotate(-$shakeDeg); /* IE 9 */
+    -webkit-transform: rotate(-$shakeDeg); /* Chrome, Safari, Opera */
+    transform: rotate(-$shakeDeg);
+  }
+}
